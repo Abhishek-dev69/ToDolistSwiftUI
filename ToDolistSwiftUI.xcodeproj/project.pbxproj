@@ -20,6 +20,7 @@
 		784921192EB675830025BEB7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 784921182EB675830025BEB7 /* FirebaseAuth */; };
 		7849211B2EB675830025BEB7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7849211A2EB675830025BEB7 /* FirebaseFirestore */; };
 		7849211D2EB675830025BEB7 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 7849211C2EB675830025BEB7 /* FirebaseFirestoreCombine-Community */; };
+		7854CB662ED8B23C0031832F /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7854CB652ED8B23C0031832F /* TLButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		784920EB2EB670910025BEB7 /* ToDolistSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDolistSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		784920F82EB670930025BEB7 /* ToDolistSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDolistSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		784921022EB670930025BEB7 /* ToDolistSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDolistSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7854CB652ED8B23C0031832F /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -126,6 +128,7 @@
 				78368ABA2EB67C0E005ABA77 /* ToDoListItemView.swift */,
 				78368ABC2EB67C27005ABA77 /* LoginView.swift */,
 				78368AD82EB6A869005ABA77 /* HeaderView.swift */,
+				7854CB652ED8B23C0031832F /* TLButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				78368AB72EB67BD2005ABA77 /* NewItemsView.swift in Sources */,
 				78368AB32EB67B8E005ABA77 /* ProfileView.swift in Sources */,
 				78368AB92EB67BF0005ABA77 /* RegisterView.swift in Sources */,
+				7854CB662ED8B23C0031832F /* TLButton.swift in Sources */,
 				78368ABF2EB67C70005ABA77 /* User.swift in Sources */,
 				78368AB52EB67BB4005ABA77 /* ToDoListView.swift in Sources */,
 				78368ABD2EB67C27005ABA77 /* LoginView.swift in Sources */,
