@@ -6,3 +6,14 @@
 //
 
 import Foundation
+internal import Combine
+class NewItemsViewViewModel: ObservableObject {
+    @Published var title=""
+    @Published var dueDate = Date()
+    init(){
+        
+        func save(){
+            
+        }
+    }
+}
