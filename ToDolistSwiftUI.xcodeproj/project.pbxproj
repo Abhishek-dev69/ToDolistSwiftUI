@@ -15,7 +15,7 @@
 		78368ABB2EB67C0E005ABA77 /* ToDoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368ABA2EB67C0E005ABA77 /* ToDoListItemView.swift */; };
 		78368ABD2EB67C27005ABA77 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368ABC2EB67C27005ABA77 /* LoginView.swift */; };
 		78368ABF2EB67C70005ABA77 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368ABE2EB67C70005ABA77 /* User.swift */; };
-		78368AC12EB67C8B005ABA77 /* ToDOListitem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368AC02EB67C8B005ABA77 /* ToDOListitem.swift */; };
+		78368AC12EB67C8B005ABA77 /* ToDoListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368AC02EB67C8B005ABA77 /* ToDoListItem.swift */; };
 		78368AD92EB6A869005ABA77 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78368AD82EB6A869005ABA77 /* HeaderView.swift */; };
 		784921192EB675830025BEB7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 784921182EB675830025BEB7 /* FirebaseAuth */; };
 		7849211B2EB675830025BEB7 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7849211A2EB675830025BEB7 /* FirebaseFirestore */; };
@@ -49,7 +49,7 @@
 		78368ABA2EB67C0E005ABA77 /* ToDoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemView.swift; sourceTree = "<group>"; };
 		78368ABC2EB67C27005ABA77 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		78368ABE2EB67C70005ABA77 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		78368AC02EB67C8B005ABA77 /* ToDOListitem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDOListitem.swift; sourceTree = "<group>"; };
+		78368AC02EB67C8B005ABA77 /* ToDoListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItem.swift; sourceTree = "<group>"; };
 		78368AD82EB6A869005ABA77 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		784920EB2EB670910025BEB7 /* ToDolistSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDolistSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		784920F82EB670930025BEB7 /* ToDolistSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDolistSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				78368ABE2EB67C70005ABA77 /* User.swift */,
-				78368AC02EB67C8B005ABA77 /* ToDOListitem.swift */,
+				78368AC02EB67C8B005ABA77 /* ToDoListItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -317,7 +317,7 @@
 			files = (
 				78368AD92EB6A869005ABA77 /* HeaderView.swift in Sources */,
 				78368ABB2EB67C0E005ABA77 /* ToDoListItemView.swift in Sources */,
-				78368AC12EB67C8B005ABA77 /* ToDOListitem.swift in Sources */,
+				78368AC12EB67C8B005ABA77 /* ToDoListItem.swift in Sources */,
 				78368AB72EB67BD2005ABA77 /* NewItemsView.swift in Sources */,
 				78368AB32EB67B8E005ABA77 /* ProfileView.swift in Sources */,
 				78368AB92EB67BF0005ABA77 /* RegisterView.swift in Sources */,

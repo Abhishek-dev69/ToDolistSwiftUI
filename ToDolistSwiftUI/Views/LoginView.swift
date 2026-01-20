@@ -1,52 +1,54 @@
-//
-//  LoginView.swift
-//  ToDolistSwiftUI
-//
-//  Created by Abhishek on 01/11/25.
-//
-
 import SwiftUI
+import FirebaseAuth
 
 struct LoginView: View {
+
     @StateObject var viewModel = LoginViewViewModel()
+
     var body: some View {
-        NavigationView{
+        NavigationStack {
             VStack {
-                HeaderView(title:"To Do List",
-                           subtitle: "Get things done",
-                           angle:15,
-                           background:.pink)
-                
-                if !viewModel.errorMessage.isEmpty{
+                HeaderView(
+                    title: "To Do List",
+                    subtitle: "Get things done",
+                    angle: 15,
+                    background: .pink
+                )
+
+                if !viewModel.errorMessage.isEmpty {
                     Text(viewModel.errorMessage)
-                        .foregroundColor(Color.red)
+                        .foregroundColor(.red)
                 }
-                //login Form
-                Form{
+
+                Form {
                     TextField("Email Address", text: $viewModel.email)
-                        .textFieldStyle(DefaultTextFieldStyle())
+                        .autocapitalization(.none)
+
                     SecureField("Password", text: $viewModel.password)
-                        .textFieldStyle(DefaultTextFieldStyle())
-                    TLButton(
-                        title:"Log In",
-                        background:.blue
-                    ){
+
+                    TLButton(title: "Log In", background: .blue) {
                         viewModel.login()
                     }
-                    
                     .padding()
                 }
-                .offset(y:-50)
-                    VStack{
-                        Text("New around Here?")
-                        NavigationLink("Create an account", destination:RegisterView())
-                    }
-                    .padding(.bottom,50)
-                    Spacer()
+                .offset(y: -50)
+
+                VStack {
+                    Text("New around here?")
+                    NavigationLink("Create an account", destination: RegisterView())
                 }
+                .padding(.bottom, 50)
+
+                Spacer()
+            }
+            // ✅ THIS WAS MISSING
+            .navigationDestination(isPresented: $viewModel.isLoggedIn) {
+                let uid = Auth.auth().currentUser!.uid
+                ToDoListView(userId: uid)
             }
         }
     }
+}
 
 #Preview {
     LoginView()

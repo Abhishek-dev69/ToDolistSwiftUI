@@ -1,16 +1,18 @@
-//
-//  ToDoListItemViewModel.swift
-//  ToDolistSwiftUI
-//
-//  Created by Abhishek on 01/11/25.
-//
-
-import Foundation
+import FirebaseFirestore
 internal import Combine
 
 class ToDoListItemViewViewModel: ObservableObject {
-    
-    init(){
-        
+
+    func toggleIsDone(item: ToDoListItem, userId: String) {
+        let db = Firestore.firestore()
+
+        db.collection("users")
+            .document(userId)
+            .collection("todos")
+            .document(item.id)
+            .updateData([
+                "isDone": !item.isDone
+            ])
     }
 }
+

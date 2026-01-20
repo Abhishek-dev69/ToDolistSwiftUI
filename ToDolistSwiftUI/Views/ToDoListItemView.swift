@@ -1,18 +1,22 @@
-//
-//  ToDoListItemView.swift
-//  ToDolistSwiftUI
-//
-//  Created by Abhishek on 01/11/25.
-//
-
 import SwiftUI
 
 struct ToDoListItemView: View {
+
+    let item: ToDoListItem
+    let userId: String
+    @StateObject private var viewModel = ToDoListItemViewViewModel()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
+                .foregroundColor(item.isDone ? .green : .gray)
+                .onTapGesture {
+                    viewModel.toggleIsDone(item: item, userId: userId)
+                }
+
+            Text(item.title)
+                .strikethrough(item.isDone)
+        }
     }
 }
 
-#Preview {
-    ToDoListItemView()
-}

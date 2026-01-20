@@ -1,37 +1,35 @@
-//
-//  ToDOListView.swift
-//  ToDolistSwiftUI
-//
-//  Created by Abhishek on 01/11/25.
-//
-
 import SwiftUI
 
 struct ToDoListView: View {
-    @StateObject var viewModel = ToDoListViewViewModel()
-    private let userId:String
-    init(userId:String){
+
+    @StateObject private var viewModel: ToDoListViewViewModel
+    private let userId: String
+
+    init(userId: String) {
         self.userId = userId
-        
+        _viewModel = StateObject(wrappedValue: ToDoListViewViewModel(userId: userId))
     }
+
     var body: some View {
-        NavigationView{
-            VStack{
-                
+        NavigationStack {
+            List(viewModel.items) { item in
+                ToDoListItemView(item: item, userId: userId)
             }
-            .navigationTitle(Text("To Do List"))
-            .toolbar{
-                Button{
-                    //action
-                }
-                label:{
+            .navigationTitle("To Do List")
+            .toolbar {
+                Button {
+                    viewModel.showingNewItemView = true
+                } label: {
                     Image(systemName: "plus")
                 }
+            }
+            .sheet(isPresented: $viewModel.showingNewItemView) {
+                NewItemsView(
+                    userId: userId,
+                    newItemsPresented: $viewModel.showingNewItemView
+                )
             }
         }
     }
 }
 
-#Preview {
-    ToDoListView(userId: "")
-}
