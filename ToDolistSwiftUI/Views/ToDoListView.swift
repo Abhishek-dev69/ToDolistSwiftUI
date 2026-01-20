@@ -12,8 +12,34 @@ struct ToDoListView: View {
 
     var body: some View {
         NavigationStack {
-            List(viewModel.items) { item in
-                ToDoListItemView(item: item, userId: userId)
+            ScrollView {
+                VStack(alignment: .leading, spacing: 24) {
+
+                    if !viewModel.todayItems.isEmpty {
+                        SectionView(
+                            title: "Today",
+                            items: viewModel.todayItems,
+                            userId: userId
+                        )
+                    }
+
+                    if !viewModel.tomorrowItems.isEmpty {
+                        SectionView(
+                            title: "Tomorrow",
+                            items: viewModel.tomorrowItems,
+                            userId: userId
+                        )
+                    }
+
+                    if !viewModel.upcomingItems.isEmpty {
+                        SectionView(
+                            title: "Upcoming",
+                            items: viewModel.upcomingItems,
+                            userId: userId
+                        )
+                    }
+                }
+                .padding()
             }
             .navigationTitle("To Do List")
             .toolbar {
@@ -31,5 +57,32 @@ struct ToDoListView: View {
             }
         }
     }
+}
+
+struct SectionView: View {
+
+    let title: String
+    let items: [ToDoListItem]
+    let userId: String
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(title)
+                .font(.title3)
+                .fontWeight(.bold)
+
+            ForEach(items) { item in
+                ToDoListItemView(item: item, userId: userId)
+            }
+        }
+    }
+}
+
+#Preview {
+    SectionView(
+        title: "Today",
+        items: [],
+        userId: "preview-user"
+    )
 }
 
