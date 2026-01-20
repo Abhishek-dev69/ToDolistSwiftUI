@@ -3,16 +3,14 @@ internal import Combine
 
 class ToDoListItemViewViewModel: ObservableObject {
 
-    func toggleIsDone(item: ToDoListItem, userId: String) {
-        let db = Firestore.firestore()
+    private let db = Firestore.firestore()
 
+    func completeTask(item: ToDoListItem, userId: String) {
         db.collection("users")
             .document(userId)
             .collection("todos")
             .document(item.id)
-            .updateData([
-                "isDone": !item.isDone
-            ])
+            .delete()
     }
 }
 
