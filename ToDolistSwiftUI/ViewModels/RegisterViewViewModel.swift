@@ -8,18 +8,27 @@ class RegisterViewViewModel: ObservableObject {
     @Published var name = ""
     @Published var email = ""
     @Published var password = ""
+    @Published var errorMessage: String = ""
+
 
     func register() {
         guard validate() else { return }
 
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
-            if let error = error {
-                print("❌ Registration error:", error.localizedDescription)
-                return
-            }
+            DispatchQueue.main.async {
+                if let error = error as NSError? {
 
-            guard let userId = result?.user.uid else { return }
-            self?.insertUserRecord(id: userId)
+                    if error.code == AuthErrorCode.emailAlreadyInUse.rawValue {
+                        self?.errorMessage = "This email is already registered. Please log in."
+                    } else {
+                        self?.errorMessage = error.localizedDescription
+                    }
+                    return
+                }
+
+                guard let userId = result?.user.uid else { return }
+                self?.insertUserRecord(id: userId)
+            }
         }
     }
 
