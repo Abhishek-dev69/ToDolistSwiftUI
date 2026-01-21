@@ -3,7 +3,7 @@ import FirebaseAuth
 
 struct LoginView: View {
 
-    @StateObject var viewModel = LoginViewViewModel()
+    @StateObject private var viewModel = LoginViewViewModel()
 
     var body: some View {
         NavigationStack {
@@ -41,10 +41,15 @@ struct LoginView: View {
 
                 Spacer()
             }
-            // ✅ THIS WAS MISSING
+            // ✅ SAFE NAVIGATION (NO FORCE UNWRAP)
             .navigationDestination(isPresented: $viewModel.isLoggedIn) {
-                let uid = Auth.auth().currentUser!.uid
-                ToDoListView(userId: uid)
+                if let uid = Auth.auth().currentUser?.uid {
+                    ToDoListView(userId: uid)
+                }
+            }
+            // ✅ HANDLE LOGOUT PROPERLY
+            .onReceive(NotificationCenter.default.publisher(for: .didLogout)) { _ in
+                viewModel.isLoggedIn = false
             }
         }
     }
