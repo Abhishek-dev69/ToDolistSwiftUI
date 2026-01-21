@@ -6,7 +6,7 @@ struct ToDoListItemView: View {
     let userId: String
 
     @StateObject private var viewModel = ToDoListItemViewViewModel()
-    @State private var showCompletedBanner = false
+    @State private var isChecked = false
 
     var body: some View {
         VStack(spacing: 10) {
@@ -14,12 +14,12 @@ struct ToDoListItemView: View {
             // Task Row
             HStack(spacing: 14) {
 
-                Image(systemName: "circle")
+                Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
                     .font(.title3)
-                    .foregroundColor(.gray)
+                    .foregroundColor(isChecked ? .green : .gray)
                     .onTapGesture {
                         withAnimation {
-                            showCompletedBanner = true
+                            isChecked.toggle()
                         }
                     }
 
@@ -39,8 +39,8 @@ struct ToDoListItemView: View {
             .cornerRadius(16)
             .shadow(color: .black.opacity(0.05), radius: 8, x: 0, y: 4)
 
-            // Completion Banner
-            if showCompletedBanner {
+            // ✅ SINGLE completion button per checked item
+            if isChecked {
                 Button {
                     withAnimation {
                         viewModel.completeTask(item: item, userId: userId)
@@ -57,7 +57,7 @@ struct ToDoListItemView: View {
                     .background(Color.green)
                     .cornerRadius(14)
                 }
-                .transition(.move(edge: .bottom).combined(with: .opacity))
+                .transition(.opacity)
             }
         }
     }

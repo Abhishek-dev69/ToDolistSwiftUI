@@ -10,7 +10,10 @@ class ToDoListItemViewViewModel: ObservableObject {
             .document(userId)
             .collection("todos")
             .document(item.id)
-            .delete()
+            .updateData([
+                "isDone": true
+            ])
     }
+
 }
 

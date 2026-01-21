@@ -34,18 +34,20 @@ class ToDoListViewViewModel: ObservableObject {
             }
     }
 
+
     private func groupItems(_ items: [ToDoListItem]) {
         let now = Date()
+        let activeItems = items.filter { !$0.isDone }
 
-        todayItems = items.filter {
+        todayItems = activeItems.filter {
             Date(timeIntervalSince1970: $0.dueDate).isToday
         }
 
-        tomorrowItems = items.filter {
+        tomorrowItems = activeItems.filter {
             Date(timeIntervalSince1970: $0.dueDate).isTomorrow
         }
 
-        upcomingItems = items.filter {
+        upcomingItems = activeItems.filter {
             let date = Date(timeIntervalSince1970: $0.dueDate)
             return date > now && !date.isToday && !date.isTomorrow
         }
